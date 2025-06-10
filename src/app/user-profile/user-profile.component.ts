@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user-profile',
@@ -14,6 +14,12 @@ export class UserProfileComponent {
   dob="";
   count =0;
   condition=false;
+
+  registerForm = new FormGroup({
+    'nameForm': new FormControl(),
+    'emailForm': new FormControl(),
+    'dobForm': new FormControl()
+  })
    constructor(){
     if(this.name=="" && this.email=="" && this.dob=="" ){
       this.condition=true;
@@ -32,14 +38,16 @@ export class UserProfileComponent {
   }
   onSave(){
     this.count++;
-    console.log(this.name);
-    console.log(this.email);
-    console.log(this.dob);
+    console.log(this.registerForm.value.nameForm);
+    console.log(this.registerForm.value.dobForm);
+    console.log(this.registerForm.value.emailForm);
     console.log(this.count)
 
   }
-  onNameChange(newVal: string){
+  onChange(newVal: string){
      this.condition=false;
      this.name=newVal
   }
+
+ 
 }

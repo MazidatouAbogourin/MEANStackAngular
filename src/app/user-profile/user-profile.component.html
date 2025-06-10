@@ -1,14 +1,28 @@
-<h2>Welcome {{name}}</h2>
-<label>Name</label>
-<input type="text" [ngModel]="name" (ngModelChange)="onNameChange($event)"> <br>
-<label>Email</label>
-<input  [(ngModel)]="email" ><br>
-<label >Date Of Birth</label>
-<input type="text" [(ngModel)]="dob"><br>
-<div>UserName: {{name}}</div> 
-<div>Email: {{email}}</div>
+<h2>Welcome {{registerForm.value.nameForm}}</h2>
+
+<form action="" [formGroup]="registerForm">
+    
+    <label>Name</label>
+   <input type="text" formControlName ="nameForm" > <br>
+
+    <label>Email</label>
+    <input   formControlName="emailForm"><br>
+
+    <label >Date Of Birth</label>
+    <input formControlName="dobForm"><br>
+
+    <button (click)="onClick()" [disabled]="condition">reset</button>
+    <button (click)="onSave()" [disabled]="condition">save</button>
+
+
+</form>
+
+<div>UserName: {{registerForm.value.nameForm}}</div> 
+<div>Email: {{registerForm.value.emailForm}}</div>
  
- <div>Dob:{{dob}} </div>
+ <div>Dob:{{registerForm.value.dobForm}} </div>
  
-<button (click)="onClick()" [disabled]="condition">reset</button>
-<button (click)="onSave()" [disabled]="condition">save</button>
+
+
+
+
