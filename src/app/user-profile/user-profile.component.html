@@ -1,0 +1,14 @@
+<h2>Welcome {{name}}</h2>
+<label>Name</label>
+<input type="text" [ngModel]="name" (ngModelChange)="onNameChange($event)"> <br>
+<label>Email</label>
+<input  [(ngModel)]="email" ><br>
+<label >Date Of Birth</label>
+<input type="text" [(ngModel)]="dob"><br>
+<div>UserName: {{name}}</div> 
+<div>Email: {{email}}</div>
+ 
+ <div>Dob:{{dob}} </div>
+ 
+<button (click)="onClick()" [disabled]="condition">reset</button>
+<button (click)="onSave()" [disabled]="condition">save</button>
