@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-profile',
@@ -16,8 +16,8 @@ export class UserProfileComponent {
   condition=false;
 
   registerForm = new FormGroup({
-    'nameForm': new FormControl(),
-    'emailForm': new FormControl(),
+    'nameForm': new FormControl("", [Validators.required]),
+    'emailForm': new FormControl("", [Validators.required]),
     'dobForm': new FormControl()
   })
    constructor(){

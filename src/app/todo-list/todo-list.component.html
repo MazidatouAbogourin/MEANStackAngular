@@ -1,0 +1,32 @@
+<!-- <p *ngIf="tasks.length==0">No data
+    <ng-container *ngIf="tasks.length>0"> 
+        <div *ngFor="let item of tasks">
+    {{item["title"]}}
+
+</div>
+
+    </ng-container>
+</p> -->
+<!-- <div *ngFor="let task of tasks">
+    
+    <p [ngClass]=" task.dueDate < currentDate ? 'red' : 'green'"  appHoverBackground> {{task.title}}</p>
+    
+
+</div> -->
+
+<p [ngSwitch]="tasks.length">
+    <ng-container *ngSwitchCase="0"> No data</ng-container>
+    <ng-container *ngSwitchDefault>
+        <ng-container *ngFor="let task of tasks">
+          <span [ngClass]="task.dueDate < currentDate ? 'red' : 'green'" appHoverBackground >  {{task["title"]}}</span>  <br>
+
+        </ng-container>
+    </ng-container>
+</p>
+
+ <form action="" [formGroup]="registerForm">
+
+<input type="text" formControlName="title" [ngStyle]="{backgroundColor: 'grey'}"> <br>
+<input type="date" formControlName="due_date"><br>
+<button (click)="addTask()">click</button>
+</form> 
