@@ -92,6 +92,8 @@ export class TodoListComponent {
     priority: "High",
   },
 ];
+ 
+selectedStatus!: string;
 
 
 registerForm= new FormGroup({
@@ -116,5 +118,7 @@ registerForm= new FormGroup({
 this.tasks.push(newTask);
 
  }
+
+ 
 
 }

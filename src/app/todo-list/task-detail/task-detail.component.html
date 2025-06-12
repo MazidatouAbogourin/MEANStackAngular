@@ -1,0 +1,38 @@
+<p >
+
+    <li><b>Title: </b>{{task.title}}</li>
+    <li><b>Due Date: </b>{{task.dueDate | date: 'dd/mm/yyyy'}}</li>
+    <li><b>Task Description: </b>{{task.description | lowercase}}</li> 
+    <li><b>Status: </b>{{task.status | lowercase}}</li>
+    <li><b>Priority: </b>{{task.priority | uppercase}}</li>
+    <button (click)="onAdded()">Edit</button>
+</p>
+
+ <form action="" *ngIf="isOpen" [formGroup]="taskForm" >
+    <label for="" >Title</label> 
+    <input type="text" formControlName="title"> <br>
+
+     <label for="">Due Date</label> 
+    <input type="date" formControlName="dueDate"> <br>
+
+     <label for="">Description</label> 
+    <input type="text" formControlName="description"> <br>
+    <label for="">Status </label> 
+    <select formControlName="status">
+        <option value="Incomplete">Incomplete</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Completed">Completed</option>
+    </select>
+    <br>
+
+    <label for="">Priority </label>
+    <select formControlName="priority">
+        <option value="Low">Low</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+    </select>
+    <br>
+    
+    <button (click)="onEdited()">save</button>
+
+</form>

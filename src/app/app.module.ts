@@ -7,6 +7,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { HoverBackgroundDirective } from './todo-list/hover-background.directive';
+import { TaskDetailComponent } from './todo-list/task-detail/task-detail.component';
+import { FilterPipe } from './todo-list/filter.pipe';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { HoverBackgroundDirective } from './todo-list/hover-background.directive
     AppComponent,
     UserProfileComponent,
     TodoListComponent,
-    HoverBackgroundDirective
+    HoverBackgroundDirective,
+    TaskDetailComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

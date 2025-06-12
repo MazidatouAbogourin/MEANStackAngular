@@ -14,12 +14,19 @@
 
 </div> -->
 
+
+<label for="">Status</label>
+<select name="" id="" [(ngModel)]="selectedStatus">
+    <option value="Incomplete">Incomplete</option>
+    <option value="In Progress">InProgress</option>
+    <option value="Completed">Completed</option>
+</select>
 <p [ngSwitch]="tasks.length">
     <ng-container *ngSwitchCase="0"> No data</ng-container>
     <ng-container *ngSwitchDefault>
-        <ng-container *ngFor="let task of tasks">
-          <span [ngClass]="task.dueDate < currentDate ? 'red' : 'green'" appHoverBackground >  {{task["title"]}}</span>  <br>
-
+        <ng-container *ngFor="let task of tasks | filter : selectedStatus ">
+          <app-task-detail [task]="task "></app-task-detail>
+          <hr>
         </ng-container>
     </ng-container>
 </p>
@@ -30,3 +37,4 @@
 <input type="date" formControlName="due_date"><br>
 <button (click)="addTask()">click</button>
 </form> 
+
