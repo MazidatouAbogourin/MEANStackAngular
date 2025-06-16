@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -11,6 +11,7 @@ export class TaskDetailComponent {
 
   @Input() task: any;
   taskForm!: FormGroup;
+  @Output() passValue=new EventEmitter()
 
   onAdded(){
     if(this.isOpen){
@@ -20,6 +21,7 @@ export class TaskDetailComponent {
     else{
        this.isOpen= true;
       this.onForm();
+      
     }
    
   }
@@ -27,7 +29,7 @@ export class TaskDetailComponent {
   onForm(){
     this.taskForm= new FormGroup(
       {
-        
+        id: new FormControl(this.task.id),
         title: new FormControl(this.task.title, [Validators.required] ),
         description: new FormControl(this.task.description, [Validators.required]),
         dueDate: new FormControl(this.task.dueDate, [Validators.required]),
@@ -42,7 +44,12 @@ export class TaskDetailComponent {
   onEdited(){
     console.log(this.taskForm.value);
     this.task=this.taskForm.value;
-    window.alert("you have successfully updated")
+    this.passValue.emit(this.task);
+    window.alert("you have successfully updated");
     this.isOpen=false;
   }
+
+
+
+  
 }

@@ -25,7 +25,7 @@
     <ng-container *ngSwitchCase="0"> No data</ng-container>
     <ng-container *ngSwitchDefault>
         <ng-container *ngFor="let task of tasks | filter : selectedStatus ">
-          <app-task-detail [task]="task "></app-task-detail>
+          <app-task-detail [task]="task " (passValue)="onChildEventTriggered($event)"></app-task-detail>
           <hr>
         </ng-container>
     </ng-container>

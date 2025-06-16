@@ -118,6 +118,12 @@ registerForm= new FormGroup({
 this.tasks.push(newTask);
 
  }
+ onChildEventTriggered(event: any){
+  console.log("hi")
+  console.log("e :", event);
+  this.tasks = this.tasks.map(task=>task.id==event.id? event: task );
+
+ }
 
  
 

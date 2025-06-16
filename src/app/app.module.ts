@@ -9,6 +9,8 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { HoverBackgroundDirective } from './todo-list/hover-background.directive';
 import { TaskDetailComponent } from './todo-list/task-detail/task-detail.component';
 import { FilterPipe } from './todo-list/filter.pipe';
+import { ProductComponent } from './product/product.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,13 +20,15 @@ import { FilterPipe } from './todo-list/filter.pipe';
     TodoListComponent,
     HoverBackgroundDirective,
     TaskDetailComponent,
-    FilterPipe
+    FilterPipe,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
 
   ],
   providers: [],

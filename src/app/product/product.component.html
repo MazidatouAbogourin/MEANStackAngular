@@ -1,0 +1,21 @@
+<input type="text"    #searchItem>
+
+<div *ngIf="products.length === 0">No products found.</div>
+ <ul *ngIf="products.length > 0">
+    <div *ngFor="let product of products">
+    
+   
+        
+        
+        <li><h3>Title : {{product.title}}</h3>
+           <p>Description: {{product.description}}</p> 
+            <small>Category: {{ product.category }}</small>
+        </li>
+     
+
+</div>
+ </ul>
+
+
+
+
