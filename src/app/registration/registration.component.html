@@ -1,0 +1,43 @@
+<h1>Welcome to {{username.value}}</h1>
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+ 
+    <label for="username" ><b>UserName:  </b>  </label>
+    <input type="text" name="username" id="username"  formControlName="userName"> 
+    <div [ngStyle]="{color:'red'}"  *ngIf="username.hasError('required') && (username.touched )"> **** UserName is required</div>
+     <div [ngStyle]="{color:'red'}" *ngIf="username.hasError('minlength')&& (username.touched )"> **** UserName minLength is 3</div>
+<div [ngStyle]="{color:'red'}" *ngIf="username.hasError('usernameExists')&& (username.touched )"> **** UserName Already exists</div><br>
+    <label for="email"><b>Email: </b></label>
+    <input type="email" name="email" id="email" formControlName="email"> 
+    <div [ngStyle]="{color:'red'}"  *ngIf="email.hasError('required') && (email.touched )">  ***Email is required</div>
+    <div [ngStyle]="{color:'red'}"  *ngIf="email.hasError('email') && (email.touched )">  ***Email is invalid</div>
+    <br> 
+
+    <label for="password"><b>PassWord: </b></label>
+    <input type="password" name="password" id="password" formControlName="password"> 
+    <div [ngStyle]="{color:'red'}"  *ngIf="password.hasError('required') && (password.touched)">  ***PassWord is required</div>
+    <div [ngStyle]="{color:'red'}"  *ngIf="password.hasError('minlength') && (password.touched )">  ***PassWord is at least 6 minLength</div> <br>
+
+    <label for="confirmedPass"><b>Confirmed Password: </b></label>
+    <input type="password" name="password" formControlName="confirmedPassword"> 
+     <div [ngStyle]="{color:'red'}"  *ngIf="confirmedPassword.hasError('required') && (confirmedPassword.touched )">  ***Field is required</div>
+    <div [ngStyle]="{color:'red'}"  *ngIf="confirmedPassword.hasError('minlength') && (confirmedPassword.touched )">  ***PassWord is at least 6 minum</div> 
+    <div [ngStyle]="{color:'red'}"  *ngIf="confirmedPassword.hasError('passwordMismatch') && (confirmedPassword.touched )">  ***confirmed password must match password</div><br>
+     
+     <label for=""><b>Preferred Contact Method</b></label>
+    <select name="" formControlName="selectionParam"  (change)="onChange($event)">
+        <option value="email">Email</option>
+        <option value="PhoneNumber" >Phone Number</option>
+    </select>
+<br><br>
+<div *ngIf="displayPhone">
+    <label for=""><b>Phone Number: </b></label>
+<input type="tel" name="" [formControl]="phone"> <br><br>
+
+ <div [ngStyle]="{color:'red'}"  *ngIf="phone.hasError('required') && (phone.touched)">  ***phone is required</div>
+    <div [ngStyle]="{color:'red'}"  *ngIf="phone.hasError('pattern') && (phone.touched )">  ***phone is at least 10 digits</div> <br>
+
+</div>
+
+
+<button type="submit"  [disabled]="registrationForm.invalid"> Click Here</button>
+</form>

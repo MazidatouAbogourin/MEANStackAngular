@@ -11,6 +11,7 @@ import { TaskDetailComponent } from './todo-list/task-detail/task-detail.compone
 import { FilterPipe } from './todo-list/filter.pipe';
 import { ProductComponent } from './product/product.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     HoverBackgroundDirective,
     TaskDetailComponent,
     FilterPipe,
-    ProductComponent
+    ProductComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
