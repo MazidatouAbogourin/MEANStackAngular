@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AbstractControl, AsyncValidator, AsyncValidatorFn, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Observable, of, switchMap, map } from 'rxjs';
 import { CheckUsernameService } from './check-username.service';
+import { UsersApiService } from './users-api.service';
 
 @Component({
   selector: 'app-registration',
@@ -19,11 +20,12 @@ export class RegistrationComponent {
     email: new FormControl("", [Validators.email, Validators.required], []),
     password: new FormControl("", [Validators.minLength(6), Validators.required]),
     confirmedPassword: new FormControl("", [Validators.minLength(6), Validators.required]),
+    
     selectionParam: new FormControl("", []),
     
 
   },[this.customPasswordMatch('password','confirmedPassword' )],[])
-  constructor(private checkUsername : CheckUsernameService){}
+  constructor(private checkUsername : CheckUsernameService, private userApi : UsersApiService){}
 
   get username(): FormControl{
     return <FormControl>this.registrationForm.get("userName");
@@ -88,9 +90,19 @@ export class RegistrationComponent {
 
   onSubmit(){
    
-    console.log(this.registrationForm.valid)
+    // console.log(this.registrationForm.valid)
+    // console.log(this.registrationForm.value);
+    // console.log(this.phone.errors);
     console.log(this.registrationForm.value);
-    console.log(this.phone.errors)
+
+    const data ={
+      username: this.username.value,
+      password: this.password.value,
+      email: this.email.value,
+      phoneNumber: this.phone.value ? this.phone.value : 1111111111,
+      role: 'user'
+    }
    
+    this.userApi.sendUser(data).subscribe(data=>console.log(data));
   }
 }
