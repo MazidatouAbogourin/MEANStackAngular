@@ -1,0 +1,32 @@
+#card{
+    width: 400px;
+    margin: auto;
+    margin-top: 100px;
+    border: 1px solid lightgray;
+    padding: 50px;
+    box-shadow: 3px 3px 1px #e4e1e1;
+    
+}
+
+form{
+    width: 250px;
+    margin: auto;
+}
+input{
+    display: block;
+    width: 200px;
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid rgb(117, 109, 109);
+    margin-top: 10px;
+}
+
+button{
+    background-color: green;
+    border: none;
+    width: 200px;
+    padding: 6px;
+    
+    color: white;
+    border-radius: 5px;
+}

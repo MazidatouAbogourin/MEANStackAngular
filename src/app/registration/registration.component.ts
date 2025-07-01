@@ -100,7 +100,7 @@ export class RegistrationComponent {
       password: this.password.value,
       email: this.email.value,
       phoneNumber: this.phone.value ? this.phone.value : 1111111111,
-      role: 'user'
+      role: 'admin'
     }
    
     this.userApi.sendUser(data).subscribe(data=>console.log(data));

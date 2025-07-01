@@ -12,6 +12,10 @@ import { FilterPipe } from './todo-list/filter.pipe';
 import { ProductComponent } from './product/product.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './registration/registration.component';
+import { LoginComponent } from './login/login.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AdminDashBoardComponent } from './admin-dash-board/admin-dash-board.component';
+
 
 
 @NgModule({
@@ -23,14 +27,17 @@ import { RegistrationComponent } from './registration/registration.component';
     TaskDetailComponent,
     FilterPipe,
     ProductComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginComponent,
+    AdminDashBoardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,  
+   
 
   ],
   providers: [],
